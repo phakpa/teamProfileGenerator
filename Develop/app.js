@@ -166,20 +166,24 @@ function addMember() {
 function renderHTML() {
   const newHtml = render(teamMembers);
   if (fs.existsSync(OUTPUT_DIR)) {
-    fs.writeFile(outputPath, newHtml, function (err) {
-      if (err) {
-        return console.log(err);
-      }
-
-      console.log("Success!");
-    });
+    buildDIR(newHtml);
   } else {
     fs.mkdir("./output", { recursive: true }, (err) => {
+      buildDIR(newHtml);
       if (err) throw err;
     });
   }
 }
 
+function buildDIR(newHtml) {
+  fs.writeFile(outputPath, newHtml, function (err) {
+    if (err) {
+      return console.log(err);
+    }
+
+    console.log("Success!");
+  });
+}
 // After you have your html, you're now ready to create an HTML file using the HTML
 // returned from the `render` function. Now write it to a file named `team.html` in the
 // `output` folder. You can use the variable `outputPath` above target this location.
