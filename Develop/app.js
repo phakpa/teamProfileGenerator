@@ -164,9 +164,15 @@ function addMember() {
 // generate and return a block of HTML including templated divs for each employee!
 
 function renderHTML() {
-  render(teamMembers);
+  const newHtml = render(teamMembers);
   if (fs.existsSync(OUTPUT_DIR)) {
-    console.log("path exist");
+    fs.writeFile(outputPath, newHtml, function (err) {
+      if (err) {
+        return console.log(err);
+      }
+
+      console.log("Success!");
+    });
   } else {
     fs.mkdir("./output", { recursive: true }, (err) => {
       if (err) throw err;
