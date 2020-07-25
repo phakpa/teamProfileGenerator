@@ -165,6 +165,13 @@ function addMember() {
 
 function renderHTML() {
   render(teamMembers);
+  if (fs.existsSync(OUTPUT_DIR)) {
+    console.log("path exist");
+  } else {
+    fs.mkdir("./output", { recursive: true }, (err) => {
+      if (err) throw err;
+    });
+  }
 }
 
 // After you have your html, you're now ready to create an HTML file using the HTML
