@@ -2,6 +2,7 @@
 
 A software engineering team is generated from a command line application. User is asked to input Manger's information along with their team members. Once information is gathered, an HTML webpage will display the summaries for each team member.
 
+Here is the link to the demo video. https://drive.google.com/file/d/1cbbGAe0ywMnyXfUNvYTsAauRMQv2ji0j/view
 Here is the link to the Github repository. https://github.com/phakpa/teamProfileGenerator
 
 images below ------------------------------------------------------------------------------
